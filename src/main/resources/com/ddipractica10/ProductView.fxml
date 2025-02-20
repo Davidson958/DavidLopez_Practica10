@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+
+<!-- Contenedor principal -->
+<VBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ddipractica10.ProductController"
+      spacing="10" alignment="center">
+
+    <!-- Definición del padding -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Primera fila: Nombre -->
+    <HBox spacing="10">
+        <Label text="Nombre:"/>
+        <TextField fx:id="nameField" promptText="Nombre del producto"/>
+    </HBox>
+
+    <!-- Segunda fila: Cantidad -->
+    <HBox spacing="10">
+        <Label text="Cantidad:"/>
+        <TextField fx:id="quantityField" promptText="Cantidad"/>
+    </HBox>
+
+    <!-- Tercera fila: Precio -->
+    <HBox spacing="10">
+        <Label text="Precio:"/>
+        <TextField fx:id="priceField" promptText="Precio"/>
+    </HBox>
+
+    <!-- Fila de botones -->
+    <HBox spacing="10">
+        <Button text="Agregar" onAction="#handleAddProduct"/>
+        <Button text="Eliminar" onAction="#handleDeleteProduct"/>
+    </HBox>
+
+    <!-- Lista de productos -->
+    <ListView fx:id="productListView" prefHeight="200" prefWidth="300"/>
+
+    <!-- Etiqueta de mensajes -->
+    <Label fx:id="messageLabel" text=""/>
+
+</VBox>
