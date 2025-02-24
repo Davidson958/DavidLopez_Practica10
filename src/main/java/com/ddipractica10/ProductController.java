@@ -32,6 +32,9 @@ public class ProductController {
     // Lista observable que está vinculada con la interfaz de usuario
     private ObservableList<String> productObservableList;
 
+    public ProductController(ProductService productService) {
+    }
+
     // Método que se ejecuta cuando la vista se inicializa
     @FXML
     public void initialize() {
@@ -104,5 +107,9 @@ public class ProductController {
         nameField.clear(); // Limpia el campo del nombre
         quantityField.clear(); // Limpia el campo de cantidad
         priceField.clear(); // Limpia el campo de precio
+    }
+
+    public void handleAddProduct(String webcam, String number, String s) {
+
     }
 }

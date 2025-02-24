@@ -8,20 +8,31 @@ public class ProductService {
     // Lista donde se almacenarán los productos
     private final List<Product> productList = new ArrayList<>();
 
-    // Método para obtener la lista de productos
     public List<Product> getProducts() {
-        return productList; // Retorna la lista de productos
+        return new ArrayList<>(productList); // Assuming 'products' is the internal list
     }
 
-    // Método para agregar un producto con validaciones
+
+
     public boolean addProduct(Product product) {
         // Valida el producto antes de agregarlo a la lista
-        if (validateProduct(product)) {
-            productList.add(product); // Agrega el producto a la lista si es válido
-            return true; // Retorna true si el producto se agrega correctamente
+        if (validateProduct(product) && !isDuplicate(product)) {
+            productList.add(product); // Agrega el producto a la lista si es válido y no está duplicado
+            return true;
         }
-        return false; // Retorna false si el producto no es válido
+        return false;
     }
+
+    // Nuevo método para verificar si un producto ya existe en la lista
+    private boolean isDuplicate(Product product) {
+        for (Product existingProduct : productList) {
+            if (existingProduct.getName().equalsIgnoreCase(product.getName())) {
+                return true; // Producto duplicado
+            }
+        }
+        return false; // No está duplicado
+    }
+
 
     // Método para editar un producto en la lista dado un índice, con validaciones
     public boolean editProduct(int index, Product updatedProduct) {
@@ -56,5 +67,16 @@ public class ProductService {
 
         // Verifica que el precio no sea negativo
         return !(product.getPrice() < 0); // Si el precio es negativo, retorna false
+    }
+
+    public void addProduct(String s, int i, double v) {
+    }
+
+    public List<Product> getAllProducts() {
+        return null;
+    }
+
+    public void removeProduct(String auriculares) {
+
     }
 }
